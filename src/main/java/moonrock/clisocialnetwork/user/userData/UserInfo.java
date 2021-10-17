@@ -10,7 +10,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class UserInfo {
-    private String firstName;
-    private String secondName;
+    private String username;
     private String password;
 }
