@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.controller;
+package moonrock.clisocialnetwork.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

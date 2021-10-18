@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.user.authorisation;
+package moonrock.clisocialnetwork.user.authorization;
 
 import moonrock.clisocialnetwork.user.User;
 
@@ -6,7 +6,7 @@ import moonrock.clisocialnetwork.user.User;
  * @author tsypk
  * @project CLISocialNetwork
  */
-public class UserAuthoriserImpl implements UserAuthoriser{
+public class UserAuthorizerImpl implements UserAuthorizer {
     @Override
     public void authorize(User user) {
 

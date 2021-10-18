@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.user.authorisation;
+package moonrock.clisocialnetwork.user.authorization;
 
 import moonrock.clisocialnetwork.user.User;
 
@@ -6,10 +6,9 @@ import moonrock.clisocialnetwork.user.User;
  * @author tsypk
  * @project CLISocialNetwork
  */
-public interface UserAuthoriser {
+public interface UserAuthorizer {
     void authorize(User user);
 
     void register(User user);
-
 
 }
