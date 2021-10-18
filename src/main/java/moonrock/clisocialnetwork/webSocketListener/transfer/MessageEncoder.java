@@ -1,5 +1,8 @@
 package moonrock.clisocialnetwork.webSocketListener.transfer;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import javax.websocket.EncodeException;
 import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
@@ -9,11 +12,11 @@ import javax.websocket.EndpointConfig;
  * @project CLISocialNetwork
  */
 public class MessageEncoder implements Encoder.Text<Message> {
-    @Override
-    public String encode(Message message) throws EncodeException {
-        String name = message.getFrom();
+    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        return null;
+    @Override
+    public String encode(Message message) {
+        return gson.toJson(message);
     }
 
     @Override

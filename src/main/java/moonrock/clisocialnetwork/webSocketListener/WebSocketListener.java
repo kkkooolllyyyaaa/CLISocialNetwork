@@ -1,6 +1,8 @@
 package moonrock.clisocialnetwork.webSocketListener;
 
 import moonrock.clisocialnetwork.webSocketListener.transfer.Message;
+import moonrock.clisocialnetwork.webSocketListener.transfer.MessageDecoder;
+import moonrock.clisocialnetwork.webSocketListener.transfer.MessageEncoder;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
@@ -11,7 +13,7 @@ import java.util.List;
  * @author tsypk
  * @project CLISocialNetwork
  */
-@ServerEndpoint("/web-socket-listener")
+@ServerEndpoint(value = "/web-socket-listener", decoders = {MessageDecoder.class}, encoders = {MessageEncoder.class})
 public class WebSocketListener {
     private Session session;
     private final List<Session> sessions = new LinkedList<>();
