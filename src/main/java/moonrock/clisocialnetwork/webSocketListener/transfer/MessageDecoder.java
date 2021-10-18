@@ -3,7 +3,6 @@ package moonrock.clisocialnetwork.webSocketListener.transfer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import javax.websocket.DecodeException;
 import javax.websocket.Decoder;
 import javax.websocket.EndpointConfig;
 
@@ -12,7 +11,7 @@ import javax.websocket.EndpointConfig;
  * @project CLISocialNetwork
  */
 public class MessageDecoder implements Decoder.Text<Message> {
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     @Override
     public Message decode(String s) {
