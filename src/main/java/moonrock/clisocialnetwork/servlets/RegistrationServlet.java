@@ -4,7 +4,6 @@ import moonrock.clisocialnetwork.user.authorization.UserAuthorizer;
 import moonrock.clisocialnetwork.user.authorization.UserAuthorizerImpl;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,8 +14,7 @@ import java.io.PrintWriter;
  * @author tsypk
  * @project CLISocialNetwork
  */
-@WebServlet(name = "authorization-servlet", value = "/authorization-servlet")
-public class AuthorisationServlet extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
     private final String authUrl = "/";
     private UserAuthorizer authorizer;
 
@@ -33,20 +31,11 @@ public class AuthorisationServlet extends HttpServlet {
             username = getParam(req, "username");
             password = getParam(req, "password");
             resp.setContentType("text/html");
-            PrintWriter printWriter = resp.getWriter();
-            printWriter.print("<html>");
-            printWriter.print("<body>");
-            printWriter.print("<h1>Student Registration Form Data</h1>");
-            printWriter.print("<p> username :: " + username + "</p>");
-            printWriter.print("<p> password :: " + password + "</p>");
-            printWriter.print("</body>");
-            printWriter.print("</html>");
-            printWriter.close();
+
         } catch (NullPointerException e) {
             forwardToAuth(req, resp);
         }
         authorizer = new UserAuthorizerImpl();
-
     }
 
     private String getParam(HttpServletRequest req, String paramName) throws NullPointerException {

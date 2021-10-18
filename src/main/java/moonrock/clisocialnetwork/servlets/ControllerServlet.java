@@ -20,6 +20,10 @@ public class ControllerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        if (req.getParameter("sign_up") != null && req.getParameter("sign_up").equals("sign_up")) {
+
+        } else if (req.getParameter("sign_in") != null && req.getParameter("sign_in").equals("sign_up")) {
+
+        }
     }
 }
