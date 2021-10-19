@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.user.userData;
+package moonrock.clisocialnetwork.entities.user.userData;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

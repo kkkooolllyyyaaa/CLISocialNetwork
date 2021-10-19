@@ -1,7 +1,7 @@
 package moonrock.clisocialnetwork.database.DAOs;
 
-import moonrock.clisocialnetwork.user.User;
-import moonrock.clisocialnetwork.user.userData.UserBio;
+import moonrock.clisocialnetwork.entities.user.User;
+import moonrock.clisocialnetwork.entities.user.userData.UserBio;
 import org.hibernate.SessionFactory;
 
 import java.util.concurrent.CopyOnWriteArrayList;

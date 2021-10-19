@@ -1,8 +1,8 @@
 package moonrock.clisocialnetwork.webSocketListener;
 
-import moonrock.clisocialnetwork.webSocketListener.transfer.Message;
-import moonrock.clisocialnetwork.webSocketListener.transfer.MessageDecoder;
-import moonrock.clisocialnetwork.webSocketListener.transfer.MessageEncoder;
+import moonrock.clisocialnetwork.entities.message.Message;
+import moonrock.clisocialnetwork.entities.message.MessageDecoder;
+import moonrock.clisocialnetwork.entities.message.MessageEncoder;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;

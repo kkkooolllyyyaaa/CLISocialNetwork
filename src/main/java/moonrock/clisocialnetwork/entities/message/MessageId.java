@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.webSocketListener.transfer;
+package moonrock.clisocialnetwork.entities.message;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

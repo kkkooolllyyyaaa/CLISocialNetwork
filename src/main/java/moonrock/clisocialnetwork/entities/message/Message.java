@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.webSocketListener.transfer;
+package moonrock.clisocialnetwork.entities.message;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -28,7 +28,7 @@ public class Message {
     private ZonedDateTime time;
     @Getter
     @Setter
-    private String text;
+    private String content;
 
 
     public Message() {
