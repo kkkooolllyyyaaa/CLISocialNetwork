@@ -34,8 +34,8 @@ public class WebSocketListener {
     }
 
     @OnError
-    public void onError(Session session) {
-
+    public void onError(Session session, Throwable throwable) {
+        throwable.printStackTrace();
     }
 
 

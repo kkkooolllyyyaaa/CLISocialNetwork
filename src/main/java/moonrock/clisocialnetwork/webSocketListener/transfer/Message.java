@@ -1,8 +1,13 @@
 package moonrock.clisocialnetwork.webSocketListener.transfer;
 
 import lombok.Getter;
+import lombok.Setter;
+import moonrock.clisocialnetwork.utils.StringComparator;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.Table;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
@@ -10,21 +15,29 @@ import java.time.ZonedDateTime;
  * @author tsypk
  * @project CLISocialNetwork
  */
-public class Message implements Serializable {
-    private final static long serialVersionUID = -42244224L;
+@Entity
+@Table(name = "messages")
+@IdClass(MessageId.class)
+public class Message {
+    @Id
+    private String user1;
+    @Id
+    private String user2;
     @Getter
-    private final String from;
+    @Setter
+    private ZonedDateTime time;
     @Getter
-    private final String to;
-    @Getter
-    private final ZonedDateTime time;
-    @Getter
-    private final String text;
+    @Setter
+    private String text;
 
-    public Message(String from, String to, String text) {
-        this.from = from;
-        this.to = to;
-        this.text = text;
+
+    public Message() {
         time = ZonedDateTime.now(ZoneId.of("Europe/Moscow"));
+    }
+
+    public void initUsers() {
+        StringComparator comparator = new StringComparator(user1, user2);
+        this.user1 = comparator.getFirst();
+        this.user2 = comparator.getSecond();
     }
 }
