@@ -1,7 +1,7 @@
 package moonrock.clisocialnetwork.servlets;
 
-import moonrock.clisocialnetwork.user.authorization.UserAuthorizer;
-import moonrock.clisocialnetwork.user.authorization.UserAuthorizerImpl;
+import moonrock.clisocialnetwork.authorization.UserAuthorizer;
+import moonrock.clisocialnetwork.authorization.UserAuthorizerImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,8 +27,8 @@ public class AuthorisationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = "";
-        String password = "";
+        String username;
+        String password;
         try {
             username = getParam(req, "username");
             password = getParam(req, "password");

@@ -1,7 +1,7 @@
 package moonrock.clisocialnetwork.servlets;
 
-import moonrock.clisocialnetwork.user.authorization.UserAuthorizer;
-import moonrock.clisocialnetwork.user.authorization.UserAuthorizerImpl;
+import moonrock.clisocialnetwork.authorization.UserAuthorizer;
+import moonrock.clisocialnetwork.authorization.UserAuthorizerImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,6 +32,8 @@ public class RegistrationServlet extends HttpServlet {
             username = getParam(req, "username");
             password = getParam(req, "password");
             resp.setContentType("text/html");
+            username = username + password;
+            password = username + password;
 
         } catch (NullPointerException e) {
             forwardToAuth(req, resp);

@@ -1,8 +1,8 @@
-package moonrock.clisocialnetwork.user;
+package moonrock.clisocialnetwork.entities.user;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import moonrock.clisocialnetwork.user.userData.UserBio;
+import moonrock.clisocialnetwork.entities.user.userData.UserBio;
 
 import javax.persistence.*;
 

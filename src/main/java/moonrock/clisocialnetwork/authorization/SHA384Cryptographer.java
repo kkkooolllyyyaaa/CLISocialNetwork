@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.user.authorization;
+package moonrock.clisocialnetwork.authorization;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

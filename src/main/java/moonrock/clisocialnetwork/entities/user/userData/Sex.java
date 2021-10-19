@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.user.userData;
+package moonrock.clisocialnetwork.entities.user.userData;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

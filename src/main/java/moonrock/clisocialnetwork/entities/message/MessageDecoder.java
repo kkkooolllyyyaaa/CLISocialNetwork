@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.webSocketListener.transfer;
+package moonrock.clisocialnetwork.entities.message;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

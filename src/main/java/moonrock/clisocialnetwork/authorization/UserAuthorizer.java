@@ -1,6 +1,6 @@
-package moonrock.clisocialnetwork.user.authorization;
+package moonrock.clisocialnetwork.authorization;
 
-import moonrock.clisocialnetwork.user.User;
+import moonrock.clisocialnetwork.entities.user.User;
 
 /**
  * @author tsypk
