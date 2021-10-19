@@ -11,7 +11,7 @@ import javax.persistence.*;
  * @project CLISocialNetwork
  */
 @Entity
-@Table(name="users")
+@Table(name = "users")
 @Data
 @NoArgsConstructor
 public class User {
