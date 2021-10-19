@@ -4,16 +4,17 @@ import moonrock.clisocialnetwork.user.authorization.UserAuthorizer;
 import moonrock.clisocialnetwork.user.authorization.UserAuthorizerImpl;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * @author tsypk
  * @project CLISocialNetwork
  */
+@WebServlet(name = "registration-servlet", value = "/registration-servlet")
 public class RegistrationServlet extends HttpServlet {
     private final String authUrl = "/";
     private UserAuthorizer authorizer;

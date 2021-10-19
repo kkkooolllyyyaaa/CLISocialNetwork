@@ -1,19 +1,36 @@
 package moonrock.clisocialnetwork.user;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import moonrock.clisocialnetwork.user.userData.UserBio;
-import moonrock.clisocialnetwork.user.userData.UserInfo;
+
+import javax.persistence.*;
 
 /**
  * @author tsypk
  * @project CLISocialNetwork
  */
+@Entity
+@Table(name="users")
 @Data
-public abstract class User {
-    private final UserInfo info;
+@NoArgsConstructor
+public class User {
+    @Id
+    @Column(name = "username")
+    private String username;
+    @Column(name = "password", nullable = false)
+    private String password;
+    @Column(name = "bio")
+    private String displayBio;
+    @Transient
     private UserBio bio;
 
-    public User(UserInfo info) {
-        this.info = info;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public void initDisplayBio() {
+        displayBio = bio.getJson();
     }
 }
