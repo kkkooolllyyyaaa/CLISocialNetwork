@@ -3,6 +3,7 @@ package moonrock.clisocialnetwork.entities.user.userData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.net.URL;
  * @project CLISocialNetwork
  */
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserBio {
