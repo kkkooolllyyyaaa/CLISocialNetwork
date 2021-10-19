@@ -12,8 +12,6 @@ import java.io.IOException;
 /**
  * @author tsypk
  * @project CLISocialNetwork
- * Implements HibernateConfigurer
- * configure database and init entities in constructor
  */
 @WebServlet(name = "controller", value = "/controller")
 public class ControllerServlet extends HttpServlet implements HibernateConfigurer {
