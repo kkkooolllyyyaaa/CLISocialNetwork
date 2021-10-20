@@ -18,27 +18,27 @@
         </div>
         <div class="col-4 auth-side">
 
-            <form id="form">
+            <form id="form" method="post" action="login">
                 <div class="mb-3">
                     <label for="login-form" class="form-label">Your login</label>
-                    <input type="text" class="form-control" id="login-form" placeholder="@login_example">
+                    <input type="text" class="form-control" id="login-form" placeholder="@login_example" name="login">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Your password</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
-                <div class="mb-3">
-                    <label for="password-confirm" class="form-label">Confirm password</label>
-                    <input type="password" class="form-control" id="password-confirm">
-                </div>
-                <button type="button" class="btn btn-secondary" id="reg" onclick="d()">Регистрация</button>
-                <button type="button" class="btn btn-secondary" id="in">Вход</button>
+                <button type="submit" class="btn btn-secondary" id="in">Enter</button>
+                <a href="auth.html">Sign up</a>
             </form>
 
         </div>
     </div>
 </div>
-<script src="js/auth.js"></script>
+
+<script src="js/RequestBody.js"></script>
+<script src="js/User.js"></script>
+<script src="js/sendData.js"></script>
+<script src="js/sign.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 </body>
 </html>
