@@ -15,4 +15,5 @@
 * WildFly servlet container
 * Maven
 * Lombok
+* [Web based Terminal](https://terminal.jcubic.pl/)
 * Gson
