@@ -1,16 +1,18 @@
 # CLISocialNetwork
 
-# Stack
+# Stack:
 * Java 8
-* Java Servlets
-* Web Sockets
-* WildFly application server
+* Java EE 8
 * JavaScript
 * HTML5
-* Bootstrap
 * CSS3
+* Bootstrap
 
-# Utils
+
+# Technologies:
+* Java Servlets
+* Web Sockets
+* WildFly servlet container
 * Maven
 * Lombok
 * Gson
