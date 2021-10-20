@@ -24,6 +24,6 @@ public class AuthorizationCheckFilter extends HttpFilter implements HibernateCon
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        
+
     }
 }

@@ -72,5 +72,10 @@
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" level="project" />
     <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.8" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.6.0.Final" level="project" />
+    <orderEntry type="library" name="postgresql-42.2.22" level="project" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery.terminal" level="application" />
+    <orderEntry type="library" name="jquery-3.3.1" level="application" />
   </component>
 </module>

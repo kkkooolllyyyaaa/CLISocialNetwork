@@ -7,19 +7,19 @@ $('.terminal').terminal({
     // show your contacts:
 
     contacts: function() {
-        contacts_command = new Command("contactsCommand", "")
+        contacts_command = new Ommand("contactsCommand", "")
         sendData(contacts_command).then(response => console.log(response))
     },
 
     // send message to another user
     send: function(reciever, message) {
-        send_command = new Command("sendCommand", reciever + " " + message)
+        send_command = new Ommand("sendCommand", reciever + " " + message)
         sendData(send_command).then(response => console.log(response))
     },
 
     profile: function() {
         const res = $(".visual")
-        //profile_command = new Command("profileCommand", "")
+        //profile_command = new Ommand("profileCommand", "")
         //sendData(profile_command).then(response => console.log(response))
 
         let div1 = $("<div><div>")

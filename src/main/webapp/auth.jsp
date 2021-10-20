@@ -31,8 +31,8 @@
                     <label for="password-confirm" class="form-label">Confirm password</label>
                     <input type="password" class="form-control" id="password-confirm">
                 </div>
-                <button type="button" class="btn btn-secondary" id="reg" onclick="d()">Регистрация</button>
-                <button type="button" class="btn btn-secondary" id="in">Вход</button>
+                <button type="button" class="btn btn-secondary" id="reg" onclick="d()">Register</button>
+                <button type="button" class="btn btn-secondary" id="in">Enter</button>
             </form>
 
         </div>
