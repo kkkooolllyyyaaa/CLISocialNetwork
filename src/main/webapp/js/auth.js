@@ -1,4 +1,3 @@
-
 /*reg.onclick = (() => {
     alert("DJLGDLJG")
     const login = $("#login-form").value();
@@ -6,12 +5,11 @@
 })*/
 
 function d() {
-    const login = document.querySelector("#login-form").value
+    const username = document.querySelector("#login-form").value
     const password = document.querySelector("#password").value
 
     let host = document.location.host;
     let pathname = document.location.pathname;
-
 
 }
 

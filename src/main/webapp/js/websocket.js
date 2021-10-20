@@ -8,7 +8,7 @@ function connect() {
 
     console.log(host + "     " + pathname)
 
-    ws = new WebSocket("ws://" +host  + pathname + "chat/" + username);
+    ws = new WebSocket("ws://" + host + pathname + "chat/" + username);
 
     ws.onmessage = function (event) {
         let log = document.getElementById("log")
@@ -22,7 +22,7 @@ function connect() {
 function send() {
     let content = document.getElementById("msg").value;
     let json = JSON.stringify({
-        "content":content
+        "content": content
     });
 
     ws.send(json);

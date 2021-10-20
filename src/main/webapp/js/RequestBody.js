@@ -1,9 +1,7 @@
 class RequestBody {
     constructor(props) {
-        this.login = props.login
+        this.username = props.username
         this.password = props.password
         this.option = props.option
-
     }
-
 }
