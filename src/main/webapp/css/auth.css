@@ -1,0 +1,13 @@
+.auth-side {
+    background-color: #011403;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 24vh;
+    margin-right: 100px;
+    border-radius: 15px;
+}
+
+#form {
+    color: aliceblue;
+    padding: 10px 10px 20px 10px;
+}
