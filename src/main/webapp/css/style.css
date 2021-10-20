@@ -1,0 +1,33 @@
+body {
+    background-color: aliceblue;
+}
+
+.terminal {
+    height: 700px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.visual {
+    height: 700px;
+    margin-top: 50px;
+    margin-left: 50px;
+    background-color: rgb(201, 201, 201);
+}
+
+.impor {
+    height: 500px;
+    background-color: black;
+}
+
+.profile-img {
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 200px;
+    width: 200px;
+}
+
+.user-name {
+    margin-top: 20px;
+    margin-left: 20px;
+}
