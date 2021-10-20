@@ -4,65 +4,46 @@ import moonrock.clisocialnetwork.database.HibernateConfigurer;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * @author tsypk
+ * @author maxim-panchuk
  * @project CLISocialNetwork
  * Implements HibernateConfigurer
  * configure database and init entities in constructor
  */
-@WebFilter(filterName = "authorization-filter", value = "/authorization-filter")
-public class AuthorizationCheckFilter extends HttpFilter implements HibernateConfigurer {
+@WebFilter("/*")
+public class AuthorizationCheckFilter implements HibernateConfigurer, Filter {
 
     @Override
-    public void init(FilterConfig config) throws ServletException {
-        super.init(config);
-        configure();
-    }
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+        final HttpServletRequest httpRequest = (HttpServletRequest) req;
+        final HttpServletResponse httpResponse = (HttpServletResponse) res;
 
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-        final HttpServletRequest req = (HttpServletRequest) request;
-        final HttpServletResponse res = (HttpServletResponse) response;
-        final HttpSession session = req.getSession();
+        String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
+        String loginURI = httpRequest.getContextPath() + "/login";
 
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
+        HttpSession httpSession = httpRequest.getSession();
 
-        if (isAttributesSet(req, "username", "password")) {
-            moveToMenu(req, res);
-        } else if (username.equals("username") && password.equals("password")) {
-            req.getSession().setAttribute("password", password);
-            req.getSession().setAttribute("login", username);
 
-            moveToMenu(req, res);
+        boolean isLoggedIn = (httpSession != null && httpSession.getAttribute("login") != null);
+        boolean isLoginRequest = httpRequest.getRequestURI().equals(loginURI);
+        boolean isLoginPage = httpRequest.getRequestURI().endsWith("login.jsp");
+
+        System.out.println("isLoggedIn: " + isLoggedIn + "  " + httpSession.getAttribute("login"));
+        System.out.println(httpRequest.getRequestURL().toString());
+
+        if (isLoggedIn && (isLoginRequest || isLoginPage))
+            httpRequest.getRequestDispatcher("/").forward(httpRequest, httpResponse);
+        else if(!isLoggedIn && httpRequest.getRequestURL().toString().equals("http://localhost:8080/CLISocialNetwork-1.0-SNAPSHOT/")) {
+            String loginPage = "/login.jsp";
+            RequestDispatcher requestDispatcher = httpRequest.getRequestDispatcher(loginPage);
+            requestDispatcher.forward(httpRequest, httpResponse);
         } else {
-            moveToLogin(req, res);
+            chain.doFilter(httpRequest, httpResponse);
         }
-
-        chain.doFilter(req, res);
-    }
-
-    private void moveToMenu(final HttpServletRequest req,
-                            final HttpServletResponse res) throws ServletException, IOException {
-        req.getRequestDispatcher("/index.jsp").forward(req, res);
-    }
-
-    private void moveToLogin(final HttpServletRequest req,
-                             final HttpServletResponse res) throws ServletException, IOException {
-        req.getRequestDispatcher("/auth.jsp").forward(req, res);
-    }
-
-    private boolean isAttributesSet(HttpServletRequest req, String... args) {
-        for (String str : args) {
-            if (req.getParameter(str) == null)
-                return false;
-        }
-        return true;
     }
 }

@@ -18,7 +18,7 @@
         </div>
         <div class="col-4 auth-side">
 
-            <form id="form">
+            <form id="form" action="login">
                 <div class="mb-3">
                     <label for="login-form" class="form-label">Your login</label>
                     <input type="text" class="form-control" id="login-form" placeholder="@login_example">
@@ -31,8 +31,8 @@
                     <label for="password-confirm" class="form-label">Confirm password</label>
                     <input type="password" class="form-control" id="password-confirm">
                 </div>
-                <button type="button" class="btn btn-secondary" id="reg" onclick="d()">Register</button>
-                <button type="button" class="btn btn-secondary" id="in">Enter</button>
+                <button type="button" class="btn btn-secondary" id="reg">Регистрация</button>
+                <button type="button" class="btn btn-secondary" id="in">Вход</button>
             </form>
 
         </div>

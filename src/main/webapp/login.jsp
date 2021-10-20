@@ -18,7 +18,7 @@
         </div>
         <div class="col-4 auth-side">
 
-            <form id="form" method="post">
+            <form id="form" method="post" action="login">
                 <div class="mb-3">
                     <label for="login-form" class="form-label">Your login</label>
                     <input type="text" class="form-control" id="login-form" placeholder="@login_example" name="login">
