@@ -16,7 +16,7 @@ import java.io.PrintWriter;
  * @project CLISocialNetwork
  */
 @WebServlet(name = "authorization-servlet", value = "/authorization-servlet")
-public class AuthorisationServlet extends HttpServlet {
+public class AuthorizationServlet extends HttpServlet {
     private final String authUrl = "/";
     private UserAuthorizer authorizer;
 

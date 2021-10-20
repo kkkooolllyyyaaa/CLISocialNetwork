@@ -3,6 +3,7 @@ package moonrock.clisocialnetwork.database.DAOs;
 import moonrock.clisocialnetwork.entities.user.userData.UserBio;
 import moonrock.clisocialnetwork.entities.user.User;
 
+import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -12,7 +13,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public interface UsersDAO {
     User getUserByUsername(String username);
 
-    CopyOnWriteArrayList<User> getAll();
+    ArrayList<User> getAll();
 
     void addUser(User user);
 
