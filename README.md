@@ -10,7 +10,7 @@
 
 
 # Technologies:
-* [Java Servlets](https://javaee.github.io/javaee-spec/)
+* Java Servlets
 * Web Sockets
 * [WildFly application server ver. 18](https://www.wildfly.org/)
 * [Maven](https://maven.apache.org/)
