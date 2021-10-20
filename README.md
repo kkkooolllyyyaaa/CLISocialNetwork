@@ -10,10 +10,10 @@
 
 
 # Technologies:
-* Java Servlets
+* [Java Servlets](https://javaee.github.io/javaee-spec/)
 * Web Sockets
-* WildFly servlet container
-* Maven
-* Lombok
+* [WildFly application server ver. 18](https://www.wildfly.org/)
+* [Maven](https://maven.apache.org/)
+* [Lombok](https://projectlombok.org/)
 * [Web based Terminal](https://terminal.jcubic.pl/)
-* Gson
+* [Gson](https://github.com/google/gson)
