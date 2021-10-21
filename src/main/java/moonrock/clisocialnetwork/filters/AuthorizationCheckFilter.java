@@ -21,18 +21,14 @@ public class AuthorizationCheckFilter implements Filter {
         final HttpServletRequest httpRequest = (HttpServletRequest) req;
         final HttpServletResponse httpResponse = (HttpServletResponse) res;
 
-        String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
         String loginURI = httpRequest.getContextPath() + "/login";
-
         HttpSession httpSession = httpRequest.getSession();
-
 
         boolean isLoggedIn = (httpSession != null && httpSession.getAttribute("username") != null);
         boolean isLoginRequest = httpRequest.getRequestURI().equals(loginURI);
         boolean isLoginPage = httpRequest.getRequestURI().endsWith("login.jsp");
 
         System.out.println("isLoggedIn: " + isLoggedIn + "  " + httpSession.getAttribute("username"));
-        System.out.println(httpRequest.getRequestURL().toString());
 
         if (isLoggedIn && (isLoginRequest || isLoginPage))
             httpRequest.getRequestDispatcher("/").forward(httpRequest, httpResponse);

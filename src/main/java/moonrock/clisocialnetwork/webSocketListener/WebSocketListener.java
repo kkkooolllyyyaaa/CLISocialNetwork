@@ -1,5 +1,6 @@
 package moonrock.clisocialnetwork.webSocketListener;
 
+import moonrock.clisocialnetwork.database.DAOs.MessagesDAOImpl;
 import moonrock.clisocialnetwork.entities.message.Message;
 import moonrock.clisocialnetwork.entities.message.MessageDecoder;
 import moonrock.clisocialnetwork.entities.message.MessageEncoder;
@@ -25,6 +26,12 @@ public class WebSocketListener {
 
     @OnMessage
     public void onMessage(Session session, Message message) {
+        if (session.isOpen()) {
+            session.getAsyncRemote().sendObject(message);
+        } else {
+            MessagesDAOImpl messagesDAO = new MessagesDAOImpl();
+            messagesDAO.addMessage(message);
+        }
 
     }
 
@@ -37,6 +44,4 @@ public class WebSocketListener {
     public void onError(Session session, Throwable throwable) {
         throwable.printStackTrace();
     }
-
-
 }

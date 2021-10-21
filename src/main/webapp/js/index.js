@@ -36,11 +36,8 @@ $('.terminal').terminal({
     logout: function () {
         document.cookie = "command=logout"
         document.cookie = "option="
-
-
         console.log(document.cookie)
         sendData("").then(response => console.log(response));
 
     }
-
 })

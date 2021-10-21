@@ -15,10 +15,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "controller", value = "/controller")
 public class ControllerServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
-    }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -28,8 +25,15 @@ public class ControllerServlet extends HttpServlet {
             System.out.println("No cookies found");
         } else {
             for (Cookie cookie : cookies) {
+
+
                 String name = cookie.getName();
-                String value = cookie.getValue();
+                if (name.equals("command")) {
+                    System.out.println(cookie.getValue());
+                }
+                if (name.equals("option")) {
+                    System.out.println(cookie.getValue());
+                }
             }
         }
     }
