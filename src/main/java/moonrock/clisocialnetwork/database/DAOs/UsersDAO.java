@@ -12,7 +12,9 @@ import java.util.List;
  * @project CLISocialNetwork
  */
 public interface UsersDAO {
-    boolean isExist(String username, String password) throws NoDataException;
+    boolean isUserExist(String username, String password) throws NoDataException;
+
+    boolean isUsernameExist(String username) throws NoDataException;
 
     User getUserByUsername(String username) throws NoDataException;
 

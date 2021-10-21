@@ -30,7 +30,7 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
     }
 
     @Override
-    public boolean isExist(String username, String password) throws NoDataException {
+    public boolean isUserExist(String username, String password) throws NoDataException {
         try {
             openTransactionSession();
 
@@ -44,6 +44,24 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
             return user != null && user.getPassword().equals(password);
         } catch (PersistenceException e) {
             throw new NoDataException("User is not exist");
+        }
+    }
+
+    @Override
+    public boolean isUsernameExist(String username) throws NoDataException {
+        try {
+            openTransactionSession();
+
+            Session session = getSession();
+            String sql = "SELECT * FROM users WHERE username = :username";
+            Query query = session.createNativeQuery(sql).addEntity(User.class);
+            query.setParameter("username", username);
+            User user = (User) query.getSingleResult();
+
+            closeTransactionSession();
+            return user != null;
+        } catch (PersistenceException e) {
+            throw new NoDataException("Username is not exist");
         }
     }
 
