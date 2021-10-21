@@ -1,6 +1,6 @@
 package moonrock.clisocialnetwork.commandLogic.commands;
 
-import moonrock.clisocialnetwork.commandLogic.commandStructure.Command;
+import moonrock.clisocialnetwork.commandLogic.Command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

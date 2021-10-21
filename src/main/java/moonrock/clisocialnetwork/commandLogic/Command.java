@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.commandLogic.commandStructure;
+package moonrock.clisocialnetwork.commandLogic;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

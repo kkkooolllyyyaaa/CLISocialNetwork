@@ -1,7 +1,5 @@
 package moonrock.clisocialnetwork.servlets;
 
-import moonrock.clisocialnetwork.database.HibernateConfigurer;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -16,14 +14,14 @@ import java.io.PrintWriter;
  * @project CLISocialNetwork
  */
 @WebServlet(name = "controller", value = "/controller")
-public class ControllerServlet extends HttpServlet implements HibernateConfigurer {
+public class ControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter printWriter = resp.getWriter();
         Cookie[] cookies = req.getCookies();
         if (cookies == null) {
@@ -37,10 +35,4 @@ public class ControllerServlet extends HttpServlet implements HibernateConfigure
             }
         }
     }
-
-    public ControllerServlet() {
-        configure();
-    }
-
-
 }
