@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.commandLogic.command_processor;
+package moonrock.clisocialnetwork.commandLogic.command_executor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
