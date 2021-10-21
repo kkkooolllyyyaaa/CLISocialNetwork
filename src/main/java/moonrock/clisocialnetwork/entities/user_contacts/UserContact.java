@@ -13,10 +13,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "contacts")
-@IdClass(UserContactsId.class)
+@IdClass(UserContactId.class)
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserContacts {
+public class UserContact {
     @Id
     @Getter
     @Setter

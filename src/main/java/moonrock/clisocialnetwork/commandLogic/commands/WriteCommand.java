@@ -1,19 +1,21 @@
 package moonrock.clisocialnetwork.commandLogic.commands;
 
 import moonrock.clisocialnetwork.commandLogic.commandStructure.Command;
-import moonrock.clisocialnetwork.commandLogic.commandStructure.CommandDescription;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author tsypk
  * @project CLISocialNetwork
  */
 public class WriteCommand extends Command {
-
-    public WriteCommand(String name, CommandDescription description) {
+    public WriteCommand(String name, String description) {
         super(name, description);
     }
-    @Override
-    public void execute(String[] args) {
 
+    @Override
+    public String execute(HttpServletRequest req, HttpServletResponse resp) {
+        return null;
     }
 }

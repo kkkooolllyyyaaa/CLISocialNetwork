@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @project CLISocialNetwork
  */
 @Data
-public class UserContactsId implements Serializable {
+public class UserContactId implements Serializable {
     private String username;
     private String contactName;
 }
