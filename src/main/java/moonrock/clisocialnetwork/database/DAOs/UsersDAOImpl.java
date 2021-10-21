@@ -19,9 +19,7 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
 
     @Override
     public List<User> getAll() {
-        openTransactionSession();
-
-        Session session = getSession();
+        Session session = openTransactionSession();
         TypedQuery<User> query = session.createQuery("from User", User.class);
         List<User> userList = query.getResultList();
 
@@ -30,11 +28,9 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
     }
 
     @Override
-    public boolean isUserExist(String username, String password) throws NoDataException {
+    public boolean isUserExist(String username, String password) {
         try {
-            openTransactionSession();
-
-            Session session = getSession();
+            Session session = openTransactionSession();
             String sql = "SELECT * FROM users WHERE username = :username";
             Query query = session.createNativeQuery(sql).addEntity(User.class);
             query.setParameter("username", username);
@@ -43,16 +39,14 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
             closeTransactionSession();
             return user != null && user.getPassword().equals(password);
         } catch (PersistenceException e) {
-            throw new NoDataException("User is not exist");
+            return false;
         }
     }
 
     @Override
-    public boolean isUsernameExist(String username) throws NoDataException {
+    public boolean isUsernameExist(String username) {
         try {
-            openTransactionSession();
-
-            Session session = getSession();
+            Session session = openTransactionSession();
             String sql = "SELECT * FROM users WHERE username = :username";
             Query query = session.createNativeQuery(sql).addEntity(User.class);
             query.setParameter("username", username);
@@ -61,18 +55,15 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
             closeTransactionSession();
             return user != null;
         } catch (PersistenceException e) {
-            throw new NoDataException("Username is not exist");
+            return false;
         }
     }
 
     @Override
     public User getUserByUsername(String username) throws NoDataException {
         try {
-            openTransactionSession();
-
-            Session session = getSession();
+            Session session = openTransactionSession();
             String sql = "SELECT * FROM users WHERE username = :username";
-
             Query query = session.createNativeQuery(sql).addEntity(User.class);
             query.setParameter("username", username);
             User user = (User) query.getSingleResult();
@@ -87,9 +78,7 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
     @Override
     public void addUser(User user) throws DataExistException {
         try {
-            openTransactionSession();
-
-            Session session = getSession();
+            Session session = openTransactionSession();
             session.save(user);
 
             closeTransactionSession();
@@ -101,9 +90,7 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
     @Override
     public void deleteUser(User user) throws NoDataException {
         try {
-            openTransactionSession();
-
-            Session session = getSession();
+            Session session = openTransactionSession();
             session.remove(user);
 
             closeTransactionSession();
@@ -115,9 +102,7 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
     @Override
     public void updateUserBio(String username, UserBio userBio) throws NoDataException {
         try {
-            openTransactionSession();
-
-            Session session = getSession();
+            Session session = openTransactionSession();
             User user = session.get(User.class, username);
             user.setBio(userBio);
             session.update(user);

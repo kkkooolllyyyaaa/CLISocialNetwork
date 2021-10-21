@@ -1,9 +1,8 @@
 package moonrock.clisocialnetwork.servlets;
 
+import moonrock.clisocialnetwork.database.DAOs.UsersDAO;
 import moonrock.clisocialnetwork.database.DAOs.UsersDAOImpl;
-import moonrock.clisocialnetwork.entities.user.User;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,35 +16,29 @@ import java.io.IOException;
  * @project CLISocialNetwork
  */
 
-@WebServlet(name = "ServletRegister", value = "/reg")
-public class ServletRegister extends HttpServlet {
+@WebServlet(name = "authorize-servlet", value = "/authorize-servlet")
+public class AuthorizeServlet extends HttpServlet {
+    private String destinationPage = "login.jsp";
+    private UsersDAO usersDAO;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.getRequestDispatcher(destinationPage).forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
-
-        UsersDAOImpl usersDAO = new UsersDAOImpl();
-
-        HttpSession httpSession = request.getSession();
-        String destinationPage;
-
-        if (usersDAO.isUsernameExist(username)) {
-            destinationPage = "register.jsp";
+        usersDAO = new UsersDAOImpl();
+        if (usersDAO.isUserExist(username, password)) {
+            HttpSession session = request.getSession();
+            session.setAttribute("username", username);
+            session.setAttribute("password", password);
+            destinationPage = "index.jsp";
         } else {
-            User newUser = new User(username, password);
-            usersDAO.addUser(newUser);
-            httpSession.setAttribute("username", username);
-            httpSession.setAttribute("password", password);
-            destinationPage = "home.jsp";
+            destinationPage = "login.jsp";
         }
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(destinationPage);
-        requestDispatcher.forward(request, response);
+        request.getRequestDispatcher(destinationPage).forward(request, response);
     }
 }

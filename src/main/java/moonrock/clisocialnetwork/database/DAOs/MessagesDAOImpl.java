@@ -30,7 +30,7 @@ public class MessagesDAOImpl extends SessionUtility implements MessagesDAO {
     }
 
     @Override
-    public Message getLastMessage(User from, User to) {
+    public Message getLastMessage(User from, User to) throws NoDataException {
         try {
             openTransactionSession();
             Session session = getSession();
