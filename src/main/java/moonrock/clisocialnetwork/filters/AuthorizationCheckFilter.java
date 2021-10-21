@@ -1,7 +1,5 @@
 package moonrock.clisocialnetwork.filters;
 
-import moonrock.clisocialnetwork.database.HibernateConfigurer;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +14,7 @@ import java.io.IOException;
  * configure database and init entities in constructor
  */
 @WebFilter("/*")
-public class AuthorizationCheckFilter implements HibernateConfigurer, Filter {
+public class AuthorizationCheckFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
@@ -38,7 +36,7 @@ public class AuthorizationCheckFilter implements HibernateConfigurer, Filter {
 
         if (isLoggedIn && (isLoginRequest || isLoginPage))
             httpRequest.getRequestDispatcher("/").forward(httpRequest, httpResponse);
-        else if(!isLoggedIn && httpRequest.getRequestURL().toString().equals("http://localhost:8080/CLISocialNetwork-1.0-SNAPSHOT/")) {
+        else if (!isLoggedIn && httpRequest.getRequestURL().toString().equals("http://localhost:8080/CLISocialNetwork-1.0-SNAPSHOT/")) {
             String loginPage = "/login.jsp";
             RequestDispatcher requestDispatcher = httpRequest.getRequestDispatcher(loginPage);
             requestDispatcher.forward(httpRequest, httpResponse);

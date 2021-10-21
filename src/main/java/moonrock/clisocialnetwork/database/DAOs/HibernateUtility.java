@@ -22,14 +22,16 @@ public class HibernateUtility {
     }
 
     private static SessionFactory buildSessionFactory() {
-        try {
-            return new Configuration().
-                    addAnnotatedClass(User.class).
-                    addAnnotatedClass(Message.class).
-                    addAnnotatedClass(UserContact.class).
-                    configure().buildSessionFactory();
-        } catch (Throwable e) {
-            throw new ExceptionInInitializerError(e);
-        }
+        new Configuration().
+                addAnnotatedClass(User.class).
+                addAnnotatedClass(Message.class).
+                addAnnotatedClass(UserContact.class).
+                configure().buildSessionFactory();
+        return new Configuration().
+                addAnnotatedClass(User.class).
+                addAnnotatedClass(Message.class).
+                addAnnotatedClass(UserContact.class).
+                configure().buildSessionFactory();
+
     }
 }

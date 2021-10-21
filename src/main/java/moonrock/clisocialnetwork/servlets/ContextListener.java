@@ -1,7 +1,7 @@
 package moonrock.clisocialnetwork.servlets;
 
-import moonrock.clisocialnetwork.commandLogic.command_executor.CommandStorage;
-import moonrock.clisocialnetwork.commandLogic.command_executor.CommandStorageImpl;
+import moonrock.clisocialnetwork.commandLogic.command_storage.CommandStorage;
+import moonrock.clisocialnetwork.commandLogic.command_storage.CommandStorageImpl;
 import moonrock.clisocialnetwork.commandLogic.commands.WriteCommand;
 
 import javax.servlet.ServletContext;

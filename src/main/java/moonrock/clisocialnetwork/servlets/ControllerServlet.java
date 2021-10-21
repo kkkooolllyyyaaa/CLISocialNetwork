@@ -30,8 +30,6 @@ public class ControllerServlet extends HttpServlet {
             for (Cookie cookie : cookies) {
                 String name = cookie.getName();
                 String value = cookie.getValue();
-
-
             }
         }
     }

@@ -12,7 +12,7 @@ import java.io.IOException;
  * @author tsypk
  * @project CLISocialNetwork
  */
-@WebFilter(filterName = "encoding-filter", value = "/encoding-filter")
+@WebFilter(filterName = "encoding-filter", value = "/encoding-filter"+"/*")
 public class EncodingFilter extends HttpFilter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {

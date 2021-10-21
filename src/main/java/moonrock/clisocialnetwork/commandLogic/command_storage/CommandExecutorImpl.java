@@ -1,4 +1,4 @@
-package moonrock.clisocialnetwork.commandLogic.command_executor;
+package moonrock.clisocialnetwork.commandLogic.command_storage;
 
 import moonrock.clisocialnetwork.commandLogic.Command;
 import moonrock.clisocialnetwork.exceptions.CommandIsNotExistException;
