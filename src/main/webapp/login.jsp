@@ -21,14 +21,14 @@
             <form id="form" method="post" action="login">
                 <div class="mb-3">
                     <label for="login-form" class="form-label">Your login</label>
-                    <input type="text" class="form-control" id="login-form" placeholder="@login_example" name="login">
+                    <input type="text" class="form-control" id="login-form" placeholder="@login_example" name="username">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Your password</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <button type="submit" class="btn btn-secondary" id="in">Enter</button>
-                <a href="auth.html">Sign up</a>
+                <a href="register.jsp">Sign up</a>
             </form>
 
         </div>

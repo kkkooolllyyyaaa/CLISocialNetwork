@@ -21,4 +21,8 @@ public interface UsersDAO {
     void deleteUser(User user);
 
     void updateUserBio(String username, UserBio userBio);
+
+    boolean isUsernameDefined(String username);
+
+    boolean isPasswordDefined(String password);
 }

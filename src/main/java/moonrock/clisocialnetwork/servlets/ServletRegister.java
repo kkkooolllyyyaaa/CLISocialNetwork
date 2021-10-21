@@ -1,15 +1,11 @@
 package moonrock.clisocialnetwork.servlets;
 
-import moonrock.clisocialnetwork.database.DAOs.UsersDAO;
 import moonrock.clisocialnetwork.database.DAOs.UsersDAOImpl;
+import moonrock.clisocialnetwork.entities.user.User;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 
 /**
@@ -17,8 +13,8 @@ import java.io.IOException;
  * @project CLISocialNetwork
  */
 
-@WebServlet(name = "ServletLogin", value = "/login")
-public class ServletLogin extends HttpServlet {
+@WebServlet(name = "ServletRegister", value = "/reg")
+public class ServletRegister extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,16 +25,20 @@ public class ServletLogin extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        String destinationPage;
 
         UsersDAOImpl usersDAO = new UsersDAOImpl();
-        if (usersDAO.isExist(username, password)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
-            destinationPage = "home.jsp";
+
+        HttpSession httpSession = request.getSession();
+        String destinationPage;
+
+        if (usersDAO.isPasswordDefined(password) || usersDAO.isUsernameDefined(username)) {
+            destinationPage = "register.jsp";
         } else {
-            destinationPage = "login.jsp";
+            User newUser = new User(username, password);
+            usersDAO.addUser(newUser);
+            httpSession.setAttribute("username", username);
+            httpSession.setAttribute("password", password);
+            destinationPage = "home.jsp";
         }
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(destinationPage);

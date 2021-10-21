@@ -31,6 +31,16 @@ $('.terminal').terminal({
         div1.append(info)
         div1.append(mobile)
         res.append(div1)
+    },
+
+    logout: function () {
+        document.cookie = "command=logout"
+        document.cookie = "option="
+
+
+        console.log(document.cookie)
+        sendData("").then(response => console.log(response));
+
     }
 
 })

@@ -18,21 +18,21 @@
         </div>
         <div class="col-4 auth-side">
 
-            <form id="form" action="login">
+            <form id="form" action="reg" method="post">
                 <div class="mb-3">
                     <label for="login-form" class="form-label">Your login</label>
-                    <input type="text" class="form-control" id="login-form" placeholder="@login_example">
+                    <input type="text" class="form-control" id="login-form" placeholder="@login_example" name="username">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Your password</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="mb-3">
                     <label for="password-confirm" class="form-label">Confirm password</label>
-                    <input type="password" class="form-control" id="password-confirm">
+                    <input type="password" class="form-control" id="password-confirm" name="password-confirm">
                 </div>
-                <button type="button" class="btn btn-secondary" id="reg">Регистрация</button>
-                <button type="button" class="btn btn-secondary" id="in">Вход</button>
+                <button type="submit" class="btn btn-secondary" id="reg">Register</button>
+                <a href="login.jsp">Sign in</a>
             </form>
 
         </div>

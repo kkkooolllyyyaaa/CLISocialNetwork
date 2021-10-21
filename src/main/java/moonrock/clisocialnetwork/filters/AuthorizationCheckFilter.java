@@ -29,11 +29,11 @@ public class AuthorizationCheckFilter implements HibernateConfigurer, Filter {
         HttpSession httpSession = httpRequest.getSession();
 
 
-        boolean isLoggedIn = (httpSession != null && httpSession.getAttribute("login") != null);
+        boolean isLoggedIn = (httpSession != null && httpSession.getAttribute("username") != null);
         boolean isLoginRequest = httpRequest.getRequestURI().equals(loginURI);
         boolean isLoginPage = httpRequest.getRequestURI().endsWith("login.jsp");
 
-        System.out.println("isLoggedIn: " + isLoggedIn + "  " + httpSession.getAttribute("login"));
+        System.out.println("isLoggedIn: " + isLoggedIn + "  " + httpSession.getAttribute("username"));
         System.out.println(httpRequest.getRequestURL().toString());
 
         if (isLoggedIn && (isLoginRequest || isLoginPage))
