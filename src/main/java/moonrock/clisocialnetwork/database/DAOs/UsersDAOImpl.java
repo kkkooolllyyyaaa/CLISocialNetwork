@@ -67,7 +67,6 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
             Query query = session.createNativeQuery(sql).addEntity(User.class);
             query.setParameter("username", username);
             User user = (User) query.getSingleResult();
-
             closeTransactionSession();
             return user;
         } catch (PersistenceException e) {
@@ -105,6 +104,7 @@ public class UsersDAOImpl extends SessionUtility implements UsersDAO {
             Session session = openTransactionSession();
             User user = session.get(User.class, username);
             user.setBio(userBio);
+            user.initDisplayBio();
             session.update(user);
 
             closeTransactionSession();

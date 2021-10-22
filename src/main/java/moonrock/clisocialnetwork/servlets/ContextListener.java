@@ -29,6 +29,6 @@ public class ContextListener implements ServletContextListener {
     }
 
     private void initCommands() {
-        commandStorage.addCommand(new WriteCommand("write", "writes to user"));
+//        commandStorage.addCommand(new WriteCommand("write", "writes to user"));
     }
 }

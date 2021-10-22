@@ -33,4 +33,6 @@ public class User {
     public void initDisplayBio() {
         displayBio = bio.getJson();
     }
+
+
 }
