@@ -17,3 +17,5 @@
 * [Lombok](https://projectlombok.org/)
 * [Web based Terminal](https://terminal.jcubic.pl/)
 * [Gson](https://github.com/google/gson)
+
+Currently unfinished
